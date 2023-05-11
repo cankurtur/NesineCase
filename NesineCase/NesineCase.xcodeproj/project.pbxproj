@@ -14,6 +14,12 @@
 		25766A0B2A0D6D330072E103 /* NesineCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25766A0A2A0D6D330072E103 /* NesineCaseTests.swift */; };
 		25766A152A0D6D330072E103 /* NesineCaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25766A142A0D6D330072E103 /* NesineCaseUITests.swift */; };
 		25766A172A0D6D330072E103 /* NesineCaseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25766A162A0D6D330072E103 /* NesineCaseUITestsLaunchTests.swift */; };
+		25766A282A0D6EC40072E103 /* ViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25766A272A0D6EC40072E103 /* ViewInterface.swift */; };
+		25766A2A2A0D6ECC0072E103 /* PresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25766A292A0D6ECC0072E103 /* PresenterInterface.swift */; };
+		25766A2C2A0D6ED50072E103 /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25766A2B2A0D6ED50072E103 /* InteractorInterface.swift */; };
+		25766A2E2A0D6EDC0072E103 /* RouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25766A2D2A0D6EDC0072E103 /* RouterInterface.swift */; };
+		25766A302A0D6F300072E103 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25766A2F2A0D6F300072E103 /* BaseViewController.swift */; };
+		25766A332A0D6F5E0072E103 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25766A322A0D6F5E0072E103 /* NSObjectExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,12 @@
 		25766A102A0D6D330072E103 /* NesineCaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NesineCaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25766A142A0D6D330072E103 /* NesineCaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NesineCaseUITests.swift; sourceTree = "<group>"; };
 		25766A162A0D6D330072E103 /* NesineCaseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NesineCaseUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		25766A272A0D6EC40072E103 /* ViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
+		25766A292A0D6ECC0072E103 /* PresenterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterInterface.swift; sourceTree = "<group>"; };
+		25766A2B2A0D6ED50072E103 /* InteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
+		25766A2D2A0D6EDC0072E103 /* RouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterInterface.swift; sourceTree = "<group>"; };
+		25766A2F2A0D6F300072E103 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		25766A322A0D6F5E0072E103 /* NSObjectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +109,7 @@
 			children = (
 				25766A232A0D6D3E0072E103 /* App */,
 				25766A252A0D6DF60072E103 /* Modules */,
+				25766A312A0D6F460072E103 /* Extensions */,
 				25766A242A0D6D4F0072E103 /* Resources */,
 				25766A012A0D6D330072E103 /* Info.plist */,
 			);
@@ -141,8 +154,29 @@
 		25766A252A0D6DF60072E103 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				25766A262A0D6EB50072E103 /* Base */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		25766A262A0D6EB50072E103 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				25766A272A0D6EC40072E103 /* ViewInterface.swift */,
+				25766A292A0D6ECC0072E103 /* PresenterInterface.swift */,
+				25766A2B2A0D6ED50072E103 /* InteractorInterface.swift */,
+				25766A2D2A0D6EDC0072E103 /* RouterInterface.swift */,
+				25766A2F2A0D6F300072E103 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		25766A312A0D6F460072E103 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				25766A322A0D6F5E0072E103 /* NSObjectExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,8 +309,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25766A2A2A0D6ECC0072E103 /* PresenterInterface.swift in Sources */,
+				25766A2C2A0D6ED50072E103 /* InteractorInterface.swift in Sources */,
 				257669F42A0D6D320072E103 /* AppDelegate.swift in Sources */,
+				25766A282A0D6EC40072E103 /* ViewInterface.swift in Sources */,
+				25766A2E2A0D6EDC0072E103 /* RouterInterface.swift in Sources */,
+				25766A302A0D6F300072E103 /* BaseViewController.swift in Sources */,
 				257669F62A0D6D320072E103 /* SceneDelegate.swift in Sources */,
+				25766A332A0D6F5E0072E103 /* NSObjectExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
