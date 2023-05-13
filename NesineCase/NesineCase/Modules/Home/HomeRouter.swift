@@ -10,7 +10,7 @@ import UIKit
 // MARK: - RouterInterface
 
 protocol HomeRouterInterface: RouterInterface {
-    
+    func navigateToPreview(imageData: Data)
 }
 
 // MARK: - HomeRouter
@@ -40,5 +40,7 @@ final class HomeRouter {
 // MARK: - HomeRouterInterface
 
 extension HomeRouter: HomeRouterInterface {
-    
+    func navigateToPreview(imageData: Data) {
+        // TODO: Navigate module will be added.
+    }
 }
