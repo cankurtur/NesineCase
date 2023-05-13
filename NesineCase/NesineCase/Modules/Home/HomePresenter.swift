@@ -25,13 +25,15 @@ final class HomePresenter {
     private let interactor: HomeInteractorInterface
     private weak var view: HomeViewInterface?
     private var groupedImageModel: [GroupedImageModel] = []
-
-    init(router: HomeRouterInterface, interactor: HomeInteractorInterface, view: HomeViewInterface?) {
+    
+    init(router: HomeRouterInterface,
+         interactor: HomeInteractorInterface,
+         view: HomeViewInterface?)
+    {
         self.router = router
         self.interactor = interactor
         self.view = view
     }
-    
 }
 
 // MARK: - HomePresenterInterface
@@ -65,6 +67,4 @@ extension HomePresenter: HomePresenterInterface {
 
 // MARK: - HomeInteractorOutput
 
-extension HomePresenter: HomeInteractorOutput {
-    
-}
+extension HomePresenter: HomeInteractorOutput { }
