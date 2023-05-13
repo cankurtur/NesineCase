@@ -41,6 +41,7 @@ final class HomeRouter {
 
 extension HomeRouter: HomeRouterInterface {
     func navigateToPreview(imageData: Data) {
-        // TODO: Navigate module will be added.
+        let view = PreviewRouter.createModule(navigationController: navigationController, imageData: imageData)
+        navigationController?.present(view, animated: true)
     }
 }
