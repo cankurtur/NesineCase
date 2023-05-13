@@ -41,6 +41,7 @@ final class HomePresenter {
 extension HomePresenter: HomePresenterInterface {
     func viewDidLoad() {
         view?.prepareUI()
+        interactor.search(key: "ios")
     }
     
     func getNumberOfSections() -> Int {
@@ -67,4 +68,15 @@ extension HomePresenter: HomePresenterInterface {
 
 // MARK: - HomeInteractorOutput
 
-extension HomePresenter: HomeInteractorOutput { }
+extension HomePresenter: HomeInteractorOutput {
+    func onSearchResponseReceived(_ result: Result<SearchResponse, APIClientError>) {
+        switch result {
+        case .success(let response):
+            let screenshotUrlsArray = response.results.flatMap { $0.screenshotUrls ?? [] }
+
+            print(screenshotUrlsArray.count)
+        case .failure(let error):
+            print(error.message)
+        }
+    }
+}
