@@ -14,7 +14,7 @@ protocol HomePresenterInterface: PresenterInterface {
     func getNumberOfItemsInSection(_ section: Int) -> Int
     func didSelectItem(at indexPath: IndexPath)
     func getCellModel(with indexPath: IndexPath) -> Data?
-    func getHeaderTitle(with section: Int) -> String
+    func getHeaderTitle(with indexPath: IndexPath) -> String
 }
 
 // MARK: - HomePresenter
@@ -24,7 +24,12 @@ final class HomePresenter {
     private let router: HomeRouterInterface
     private let interactor: HomeInteractorInterface
     private weak var view: HomeViewInterface?
-    private var groupedImageModel: [GroupedImageModel] = []
+    private var imagesByCategory: [ImageSizeCategory: [Data]] = [
+        .small: [],
+        .medium: [],
+        .large: [],
+        .xlarge: []
+    ]
     
     init(router: HomeRouterInterface,
          interactor: HomeInteractorInterface,
@@ -41,28 +46,34 @@ final class HomePresenter {
 extension HomePresenter: HomePresenterInterface {
     func viewDidLoad() {
         view?.prepareUI()
-        interactor.search(key: "ios")
     }
     
     func getNumberOfSections() -> Int {
-        return groupedImageModel.count
+        return imagesByCategory.count
     }
     
     func getNumberOfItemsInSection(_ section: Int) -> Int {
-        return groupedImageModel[section].images.count
+        let category = ImageSizeCategory.allCases[section]
+        return imagesByCategory[category]?.count ?? 0
     }
     
     func didSelectItem(at indexPath: IndexPath) {
-        let imageData = groupedImageModel[indexPath.section].images[indexPath.row]
+        let category = ImageSizeCategory.allCases[indexPath.section]
+        let imageData = imagesByCategory[category]?[indexPath.row]
+        guard let imageData = imageData else { return }
+        
         router.navigateToPreview(imageData: imageData)
     }
     
     func getCellModel(with indexPath: IndexPath) -> Data? {
-        return groupedImageModel[indexPath.section].images[indexPath.row]
+        let category = ImageSizeCategory.allCases[indexPath.section]
+        let imageData = imagesByCategory[category]?[indexPath.row]
+        return imageData
     }
     
-    func getHeaderTitle(with section: Int) -> String {
-        return groupedImageModel[section].size.sectionName
+    func getHeaderTitle(with indexPath: IndexPath) -> String {
+        let header = ImageSizeCategory.allCases[indexPath.section].rawValue
+        return header
     }
 }
 
@@ -73,10 +84,26 @@ extension HomePresenter: HomeInteractorOutput {
         switch result {
         case .success(let response):
             let screenshotUrlsArray = response.results.flatMap { $0.screenshotUrls ?? [] }
-
-            print(screenshotUrlsArray.count)
+            let urls = screenshotUrlsArray.compactMap({ URL(string: $0) })
+            interactor.downloadImages(urls: urls)
         case .failure(let error):
             print(error.message)
+        }
+    }
+    
+    func onImageDataReceived(_ result: Result<(Data, ImageSizeCategory), ImageDownloadError>) {
+        switch result {
+        case .success(let response):
+            let (data, category) = response
+            imagesByCategory[category]?.append(data)
+
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                
+                self.view?.reloadData()
+            }
+        case .failure(let error):
+            print(error)
         }
     }
 }
