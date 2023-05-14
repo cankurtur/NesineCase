@@ -7,4 +7,24 @@
 
 import UIKit
 
-public protocol ViewInterface: AnyObject { }
+public protocol ViewInterface: AnyObject {
+    func showAlertWithAPIClientError(error: APIClientError)
+    func showAlertWithImageDownloadError(error: ImageDownloadError)
+}
+
+extension ViewInterface {
+    func showAlertWithAPIClientError(error: APIClientError) {
+        AlertManager.shared.showAlertFromTopViewController(
+            message: error.message,
+            title: Localizable.generalErrorTitle,
+            firstButtonTitle: Localizable.generalOk,
+            firstButtonAction: nil)
+    }
+    func showAlertWithImageDownloadError(error: ImageDownloadError) {
+        AlertManager.shared.showAlertFromTopViewController(
+            message: error.message,
+            title: Localizable.generalErrorTitle,
+            firstButtonTitle: Localizable.generalOk,
+            firstButtonAction: nil)
+    }
+}

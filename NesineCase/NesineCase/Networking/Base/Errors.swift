@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol APIError: Codable, AnyObject {
+public protocol APIError: Codable, AnyObject {
     var errorMessage: String { get }
     var statusCode: Int? { get set }
 }
 
-enum APIClientError: Error {
+public enum APIClientError: Error {
     case handledError(error: APIError)
     case networkError
     case decoding(error: DecodingError?)
@@ -20,7 +20,7 @@ enum APIClientError: Error {
     case invalidStatusCode
     case badRequest
     
-    var message: String {
+    public var message: String {
         switch self {
         case .handledError(let error):
             return error.errorMessage
@@ -37,7 +37,7 @@ enum APIClientError: Error {
         }
     }
     
-    var statusCode: Int {
+    public var statusCode: Int {
         switch self {
         case .handledError:
             return 400

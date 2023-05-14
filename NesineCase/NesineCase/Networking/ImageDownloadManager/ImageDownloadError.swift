@@ -7,6 +7,13 @@
 
 import Foundation
 
-enum ImageDownloadError: Error {
+public enum ImageDownloadError: Error {
     case downloadFailed
+    
+    public var message: String {
+        switch self {
+        case .downloadFailed:
+            return "Download Failed"
+        }
+    }
 }

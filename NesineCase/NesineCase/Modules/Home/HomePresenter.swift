@@ -15,6 +15,7 @@ protocol HomePresenterInterface: PresenterInterface {
     func didSelectItem(at indexPath: IndexPath)
     func getCellModel(with indexPath: IndexPath) -> Data?
     func getHeaderTitle(with indexPath: IndexPath) -> String
+    func searchBarSearchButtonClicked(_ searchText: String)
 }
 
 // MARK: - HomePresenter
@@ -46,6 +47,7 @@ final class HomePresenter {
 extension HomePresenter: HomePresenterInterface {
     func viewDidLoad() {
         view?.prepareUI()
+        view?.updateEmptyView(with: hasImageData())
     }
     
     func getNumberOfSections() -> Int {
@@ -75,6 +77,11 @@ extension HomePresenter: HomePresenterInterface {
         let header = ImageSizeCategory.allCases[indexPath.section].rawValue
         return header
     }
+    
+    func searchBarSearchButtonClicked(_ searchText: String) {
+        clearSearch()
+        interactor.search(key: searchText)
+    }
 }
 
 // MARK: - HomeInteractorOutput
@@ -87,7 +94,7 @@ extension HomePresenter: HomeInteractorOutput {
             let urls = screenshotUrlsArray.compactMap({ URL(string: $0) })
             interactor.downloadImages(urls: urls)
         case .failure(let error):
-            print(error.message)
+            view?.showAlertWithAPIClientError(error: error)
         }
     }
     
@@ -101,9 +108,34 @@ extension HomePresenter: HomeInteractorOutput {
                 guard let self else { return }
                 
                 self.view?.reloadData()
+                self.view?.updateEmptyView(with: hasImageData())
+
             }
         case .failure(let error):
-            print(error)
+            view?.showAlertWithImageDownloadError(error: error)
         }
+    }
+}
+
+// MARK: - Helper
+
+private extension HomePresenter {
+    func clearSearch() {
+        imagesByCategory.removeAll()
+        imagesByCategory = [
+            .small: [],
+            .medium: [],
+            .large: [],
+            .xlarge: []
+        ]
+    }
+    
+    func hasImageData() -> Bool {
+        for (_, dataArray) in imagesByCategory {
+            if !dataArray.isEmpty {
+                return true
+            }
+        }
+        return false
     }
 }
