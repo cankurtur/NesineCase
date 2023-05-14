@@ -17,7 +17,6 @@ private enum Constant {
         static let font: UIFont = .systemFont(ofSize: 16, weight: .semibold)
         static let leadingConstraintConstant: CGFloat = 15
         static let trailingConstraintConstant: CGFloat = -15
-
     }
 }
 

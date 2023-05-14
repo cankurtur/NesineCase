@@ -24,6 +24,22 @@ private enum Constant {
         static let cellHeightMultipleConstant: CGFloat = 2
     }
     
+    enum EmptyView {
+        static let backgroundColor: UIColor = .white
+        static let noAlphaValue: CGFloat = 0
+        static let alphaValue: CGFloat = 1
+        static let animateDuration: CGFloat = 0.5
+    }
+    
+    enum EmptyLabel {
+        static let text: String = Localizable.emptyLabelThereIsNoData
+        static let textColor: UIColor = .black
+        static let font: UIFont = .systemFont(ofSize: 16, weight: .semibold)
+        static let topConstraintConstant: CGFloat = 30
+        static let leadingConstraintConstant: CGFloat = 15
+        static let trailingConstraintConstant: CGFloat = -15
+    }
+    
 }
 
 // MARK: - ViewInterface
@@ -31,6 +47,7 @@ private enum Constant {
 protocol HomeViewInterface: ViewInterface {
     func prepareUI()
     func reloadData()
+    func updateEmptyView(with isHidden: Bool)
 }
 
 // MARK: - HomeViewController
@@ -42,6 +59,23 @@ final class HomeViewController: BaseViewController {
         searchBar.delegate = self
         searchBar.placeholder = Constant.SearchBar.placeholder
         return searchBar
+    }()
+    
+    private lazy var emptyView: UIView = {
+        let view = UIView()
+        view.alpha = Constant.EmptyView.noAlphaValue
+        view.isHidden = true
+        view.backgroundColor = Constant.EmptyView.backgroundColor
+        return view
+    }()
+    
+    private lazy var emptyLabel: UILabel = {
+        let label = UILabel()
+        label.text = Constant.EmptyLabel.text
+        label.textColor = Constant.EmptyLabel.textColor
+        label.textAlignment = .center
+        label.font = Constant.EmptyLabel.font
+        return label
     }()
     
     private lazy var searchItemCollectionView: UICollectionView = {
@@ -86,12 +120,25 @@ extension HomeViewController: HomeViewInterface {
     func reloadData() {
         searchItemCollectionView.reloadData()
     }
+    
+    func updateEmptyView(with isHidden: Bool) {
+        emptyView.isHidden = isHidden
+        
+        UIView.animate(withDuration: Constant.EmptyView.animateDuration) { [weak self] in
+            guard let self else { return }
+            
+            self.emptyView.alpha = isHidden ? Constant.EmptyView.noAlphaValue : Constant.EmptyView.alphaValue
+        }
+    }
 }
 
 // MARK: - UISearchBarDelegate
 
 extension HomeViewController: UISearchBarDelegate {
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text else { return }
+        presenter.searchBarSearchButtonClicked(searchText)
+    }
 }
 
 // MARK: - UICollectionViewDelegate
@@ -161,9 +208,14 @@ private extension HomeViewController {
     func setupLayout() {
         view.addSubview(searchBar)
         view.addSubview(searchItemCollectionView)
-        view.bringSubviewToFront(searchBar)
+        view.addSubview(emptyView)
+        emptyView.addSubview(emptyLabel)
+        view.bringSubviewToFront(emptyView)
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchItemCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        emptyLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -176,6 +228,21 @@ private extension HomeViewController {
             searchItemCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             searchItemCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             searchItemCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            emptyView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            emptyView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            emptyView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            emptyView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            emptyLabel.centerXAnchor.constraint(equalTo: searchItemCollectionView.centerXAnchor),
+            emptyLabel.centerYAnchor.constraint(equalTo: searchItemCollectionView.centerYAnchor),
+            emptyLabel.topAnchor.constraint(equalTo: searchItemCollectionView.topAnchor, constant: Constant.EmptyLabel.topConstraintConstant),
+            emptyLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constant.EmptyLabel.leadingConstraintConstant),
+            emptyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constant.EmptyLabel.trailingConstraintConstant),
         ])
     }
 }
