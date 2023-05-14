@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol ImageDownloadManagerInterface {
+    func downloadAndCategorizeImages(completion: @escaping (Result<(Data, ImageSizeCategory), ImageDownloadError>) -> Void) async
+}

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class NetworkManager<EndpointItem: Endpoint>: NetworkManagerProtocol {
+final class NetworkManager<EndpointItem: Endpoint>: NetworkManagerInterface {
     
     private let sesion: URLSession
     private let timeoutInterval: TimeInterval
