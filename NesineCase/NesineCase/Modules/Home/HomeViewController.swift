@@ -30,6 +30,7 @@ private enum Constant {
 
 protocol HomeViewInterface: ViewInterface {
     func prepareUI()
+    func reloadData()
 }
 
 // MARK: - HomeViewController
@@ -81,6 +82,10 @@ extension HomeViewController: HomeViewInterface {
         
         setupLayout()
     }
+    
+    func reloadData() {
+        searchItemCollectionView.reloadData()
+    }
 }
 
 // MARK: - UISearchBarDelegate
@@ -122,7 +127,7 @@ extension HomeViewController: UICollectionViewDataSource {
         switch kind {
         case UICollectionView.elementKindSectionHeader :
             let header = collectionView.dequeueReusableSupplementaryView(type: SearchItemHeaderCollectionReusableView.self, ofKind: kind, indexPath: indexPath)
-            let headerName = presenter.getHeaderTitle(with: indexPath.section)
+            let headerName = presenter.getHeaderTitle(with: indexPath)
             header.configure(size: headerName)
             return header
         default:
