@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  NesineCase
+
+  Created by Can Kurtur on 13.05.2023.
+  
+*/
+
+"searchBar.placeholder" = "Search";
+"imageSizeSectionTitle.low" = "0-100kb";
+"imageSizeSectionTitle.normal" = "100-250kb";
+"imageSizeSectionTitle.high" = "250-500kb";
+"imageSizeSectionTitle.superHigh" = "500+kb";
+"emptyLabel.thereIsNoData" = "There is No Data";
+
+
+
+"general.ok" = "OK";
+"general.errorTitle" = "Ups! Something went wrong";
+"general.downloadFailed" = "Download Failed";
