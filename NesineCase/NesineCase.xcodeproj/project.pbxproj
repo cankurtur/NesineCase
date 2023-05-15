@@ -18,9 +18,6 @@
 		257669F62A0D6D320072E103 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257669F52A0D6D320072E103 /* SceneDelegate.swift */; };
 		257669FD2A0D6D330072E103 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 257669FC2A0D6D330072E103 /* Assets.xcassets */; };
 		25766A002A0D6D330072E103 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 257669FE2A0D6D330072E103 /* LaunchScreen.storyboard */; };
-		25766A0B2A0D6D330072E103 /* NesineCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25766A0A2A0D6D330072E103 /* NesineCaseTests.swift */; };
-		25766A152A0D6D330072E103 /* NesineCaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25766A142A0D6D330072E103 /* NesineCaseUITests.swift */; };
-		25766A172A0D6D330072E103 /* NesineCaseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25766A162A0D6D330072E103 /* NesineCaseUITestsLaunchTests.swift */; };
 		25766A282A0D6EC40072E103 /* ViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25766A272A0D6EC40072E103 /* ViewInterface.swift */; };
 		25766A2A2A0D6ECC0072E103 /* PresenterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25766A292A0D6ECC0072E103 /* PresenterInterface.swift */; };
 		25766A2C2A0D6ED50072E103 /* InteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25766A2B2A0D6ED50072E103 /* InteractorInterface.swift */; };
@@ -58,17 +55,14 @@
 		25874C042A105C690025A2FB /* ImageDownloadManagerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25874C032A105C690025A2FB /* ImageDownloadManagerInterface.swift */; };
 		25E4EED12A1127C70056FAD3 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E4EED02A1127C70056FAD3 /* AlertManager.swift */; };
 		25E4EED32A1129290056FAD3 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E4EED22A1129290056FAD3 /* UIApplicationExtension.swift */; };
+		25E4EED62A1136630056FAD3 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E4EED52A1136630056FAD3 /* PreviewViewController.swift */; };
+		25E4EED82A11366E0056FAD3 /* PreviewPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E4EED72A11366E0056FAD3 /* PreviewPresenterTests.swift */; };
+		25E4EEDA2A11367A0056FAD3 /* PreviewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E4EED92A11367A0056FAD3 /* PreviewInteractor.swift */; };
+		25E4EEDC2A1136810056FAD3 /* PreviewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E4EEDB2A1136810056FAD3 /* PreviewRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		25766A072A0D6D330072E103 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 257669E82A0D6D320072E103 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 257669EF2A0D6D320072E103;
-			remoteInfo = NesineCase;
-		};
-		25766A112A0D6D330072E103 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 257669E82A0D6D320072E103 /* Project object */;
 			proxyType = 1;
@@ -92,10 +86,6 @@
 		257669FF2A0D6D330072E103 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25766A012A0D6D330072E103 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25766A062A0D6D330072E103 /* NesineCaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NesineCaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		25766A0A2A0D6D330072E103 /* NesineCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NesineCaseTests.swift; sourceTree = "<group>"; };
-		25766A102A0D6D330072E103 /* NesineCaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NesineCaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		25766A142A0D6D330072E103 /* NesineCaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NesineCaseUITests.swift; sourceTree = "<group>"; };
-		25766A162A0D6D330072E103 /* NesineCaseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NesineCaseUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		25766A272A0D6EC40072E103 /* ViewInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInterface.swift; sourceTree = "<group>"; };
 		25766A292A0D6ECC0072E103 /* PresenterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterInterface.swift; sourceTree = "<group>"; };
 		25766A2B2A0D6ED50072E103 /* InteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorInterface.swift; sourceTree = "<group>"; };
@@ -133,6 +123,10 @@
 		25874C032A105C690025A2FB /* ImageDownloadManagerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadManagerInterface.swift; sourceTree = "<group>"; };
 		25E4EED02A1127C70056FAD3 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		25E4EED22A1129290056FAD3 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		25E4EED52A1136630056FAD3 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		25E4EED72A11366E0056FAD3 /* PreviewPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPresenterTests.swift; sourceTree = "<group>"; };
+		25E4EED92A11367A0056FAD3 /* PreviewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewInteractor.swift; sourceTree = "<group>"; };
+		25E4EEDB2A1136810056FAD3 /* PreviewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,13 +138,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		25766A032A0D6D330072E103 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		25766A0D2A0D6D330072E103 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -186,7 +173,6 @@
 			children = (
 				257669F22A0D6D320072E103 /* NesineCase */,
 				25766A092A0D6D330072E103 /* NesineCaseTests */,
-				25766A132A0D6D330072E103 /* NesineCaseUITests */,
 				257669F12A0D6D320072E103 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -196,7 +182,6 @@
 			children = (
 				257669F02A0D6D320072E103 /* NesineCase.app */,
 				25766A062A0D6D330072E103 /* NesineCaseTests.xctest */,
-				25766A102A0D6D330072E103 /* NesineCaseUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,18 +204,9 @@
 		25766A092A0D6D330072E103 /* NesineCaseTests */ = {
 			isa = PBXGroup;
 			children = (
-				25766A0A2A0D6D330072E103 /* NesineCaseTests.swift */,
+				25E4EED42A1136370056FAD3 /* Preview */,
 			);
 			path = NesineCaseTests;
-			sourceTree = "<group>";
-		};
-		25766A132A0D6D330072E103 /* NesineCaseUITests */ = {
-			isa = PBXGroup;
-			children = (
-				25766A142A0D6D330072E103 /* NesineCaseUITests.swift */,
-				25766A162A0D6D330072E103 /* NesineCaseUITestsLaunchTests.swift */,
-			);
-			path = NesineCaseUITests;
 			sourceTree = "<group>";
 		};
 		25766A232A0D6D3E0072E103 /* App */ = {
@@ -389,6 +365,17 @@
 			path = ImageDownloadManager;
 			sourceTree = "<group>";
 		};
+		25E4EED42A1136370056FAD3 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				25E4EED52A1136630056FAD3 /* PreviewViewController.swift */,
+				25E4EED72A11366E0056FAD3 /* PreviewPresenterTests.swift */,
+				25E4EED92A11367A0056FAD3 /* PreviewInteractor.swift */,
+				25E4EEDB2A1136810056FAD3 /* PreviewRouter.swift */,
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -427,24 +414,6 @@
 			productReference = 25766A062A0D6D330072E103 /* NesineCaseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		25766A0F2A0D6D330072E103 /* NesineCaseUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 25766A202A0D6D330072E103 /* Build configuration list for PBXNativeTarget "NesineCaseUITests" */;
-			buildPhases = (
-				25766A0C2A0D6D330072E103 /* Sources */,
-				25766A0D2A0D6D330072E103 /* Frameworks */,
-				25766A0E2A0D6D330072E103 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				25766A122A0D6D330072E103 /* PBXTargetDependency */,
-			);
-			name = NesineCaseUITests;
-			productName = NesineCaseUITests;
-			productReference = 25766A102A0D6D330072E103 /* NesineCaseUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -459,10 +428,6 @@
 						CreatedOnToolsVersion = 14.3;
 					};
 					25766A052A0D6D330072E103 = {
-						CreatedOnToolsVersion = 14.3;
-						TestTargetID = 257669EF2A0D6D320072E103;
-					};
-					25766A0F2A0D6D330072E103 = {
 						CreatedOnToolsVersion = 14.3;
 						TestTargetID = 257669EF2A0D6D320072E103;
 					};
@@ -483,7 +448,6 @@
 			targets = (
 				257669EF2A0D6D320072E103 /* NesineCase */,
 				25766A052A0D6D330072E103 /* NesineCaseTests */,
-				25766A0F2A0D6D330072E103 /* NesineCaseUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -501,13 +465,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		25766A042A0D6D330072E103 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		25766A0E2A0D6D330072E103 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -572,16 +529,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25766A0B2A0D6D330072E103 /* NesineCaseTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		25766A0C2A0D6D330072E103 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				25766A172A0D6D330072E103 /* NesineCaseUITestsLaunchTests.swift in Sources */,
-				25766A152A0D6D330072E103 /* NesineCaseUITests.swift in Sources */,
+				25E4EEDC2A1136810056FAD3 /* PreviewRouter.swift in Sources */,
+				25E4EED62A1136630056FAD3 /* PreviewViewController.swift in Sources */,
+				25E4EED82A11366E0056FAD3 /* PreviewPresenterTests.swift in Sources */,
+				25E4EEDA2A11367A0056FAD3 /* PreviewInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,11 +543,6 @@
 			isa = PBXTargetDependency;
 			target = 257669EF2A0D6D320072E103 /* NesineCase */;
 			targetProxy = 25766A072A0D6D330072E103 /* PBXContainerItemProxy */;
-		};
-		25766A122A0D6D330072E103 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 257669EF2A0D6D320072E103 /* NesineCase */;
-			targetProxy = 25766A112A0D6D330072E103 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -824,42 +770,6 @@
 			};
 			name = Release;
 		};
-		25766A212A0D6D330072E103 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WZ2D3R22K6;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cankurtur.NesineCaseUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NesineCase;
-			};
-			name = Debug;
-		};
-		25766A222A0D6D330072E103 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = WZ2D3R22K6;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.cankurtur.NesineCaseUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NesineCase;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -886,15 +796,6 @@
 			buildConfigurations = (
 				25766A1E2A0D6D330072E103 /* Debug */,
 				25766A1F2A0D6D330072E103 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		25766A202A0D6D330072E103 /* Build configuration list for PBXNativeTarget "NesineCaseUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				25766A212A0D6D330072E103 /* Debug */,
-				25766A222A0D6D330072E103 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
